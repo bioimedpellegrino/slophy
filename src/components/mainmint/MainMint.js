@@ -1,5 +1,11 @@
 import {useState} from 'react';
 import { ethers, BigNumber } from 'ethers';
+
+import {ReactComponent as SlophyEth} from "../../assets/background/slophyeth.svg";
+import {ReactComponent as D2E} from "../../assets/background/d2e.svg";
+
+import { Input, Button, Text } from '@chakra-ui/react';
+
 import slophyNFT from '../../SlophyNFT.json';
 
 const slophyNFTAddress = "0xE7f6703E4feBF792693149e3B9b2eAd2B2160C1F";
@@ -18,7 +24,9 @@ const MainMint = ({ accounts, setAccounts }) => {
                 signer
             );
             try{
-                const response = await contract.mint(BigNumber.from(mintAmount));
+                const response = await contract.mint(BigNumber.from(mintAmount), {
+                    value: ethers.utils.parseEther((0.28 * mintAmount).toString()),
+                });
                 console.log("response", response);
             } 
             catch(err){
@@ -39,23 +47,76 @@ const MainMint = ({ accounts, setAccounts }) => {
 
     return (
         <div>
-            <h1>SlophyNFT</h1>
-            <h3>
-               Slophy NFTs is a collection of 5000 utility NFTs that allows you special access to the Slophy App. <br/>
-               Slophy is the first D2E (disconnect to Earn) platform that rewards you for taking a break from your smartphone. <br/> 
-               Slophy is open for all, but owning Slophy NFT allows you to see a hidden section on the app and the ability to gain rewards faster.
-            </h3>
+            <div>
+                <SlophyEth/>
+            </div>
+            <div>
+                <D2E/>
+            </div>
+            <p>The only <b>NFT</b> that earns you crypto by smartphone’s disconnection.</p>
             {isConnected ? (
                 <div>
                     <div>
-                        <button onClick={handleDecrement}>-</button>
-                        <input type="number" value={mintAmount} />
-                        <button onClick={handleIncrement}>+</button>
+                        <Button
+                            backgroundColor="#cbfe41"
+                            borderRadius="25px"
+                            boxShadow="0px 2px 2px 1px #cbfe41"
+                            color="black"
+                            cursor="pointer"
+                            fontFamily="inherit"
+                            padding="15px"
+                            width="50px"
+                            margin="0 15px"
+                            onClick={handleDecrement}><b>-</b></Button>
+                        <Input
+                            readOnly
+                            fontFamily="inherit"
+                            width="10%"
+                            height="40px"
+                            textAlign="center"
+                            paddingLeft="19px"
+                            marginTop="10px"
+                            type="number"
+                            value={mintAmount}
+                        />
+                        <Button
+                            backgroundColor="#cbfe41"
+                            borderRadius="25px"
+                            boxShadow="0px 2px 2px 1px #cbfe41"
+                            color="black"
+                            cursor="pointer"
+                            fontFamily="inherit"
+                            padding="15px"
+                            width="50px"
+                            margin="0 15px"
+                            onClick={handleIncrement}><b>+</b></Button>
                     </div>
-                    <button onClick={handleMint}>Mint Slophy :D</button>
+                    <Button
+                        backgroundColor="#cbfe41"
+                        borderRadius="5px"
+                        boxShadow="0px 2px 2px 1px #cbfe41"
+                        color="black"
+                        cursor="pointer"
+                        fontFamily="inherit"
+                        padding="15px"
+                        width="160px"
+                        margin="15px 15px"
+                        onClick={handleMint}
+                    >
+                    <b>MINT!</b>
+                    </Button>
                 </div>
             ) : (
-                <p>Please connect your MetaMask wallet!</p>
+                <Text
+                    marginTop="60px"
+                    fontSize="30px"
+                    letterSpacing="-5.5%"
+                    fontFamily="inherit"
+                    textShadow="0 1px #27414D"
+                    color="#cbfe41"
+                >
+                    You must be connected to mint!
+                </Text>
             )}
         </div>
     )

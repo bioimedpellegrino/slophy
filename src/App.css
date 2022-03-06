@@ -1,9 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Smooch+Sans");
-@import url("https://fonts.googleapis.com/css?family=VT323");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 
 .App {
   text-align: center;
-  font-family: "Smooch Sans";
+  font-family: "Poppins";
   font-size: large;
   color: black;
 }
@@ -26,20 +25,6 @@ body {
   position: fixed;
 }
 
-.mooving-background {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("./assets/background/mooving-background.gif");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 40% 40%;
-
-}
-
 .background {
   z-index: -1;
   position: absolute;
@@ -47,7 +32,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("./assets/background/background-slophy.png");
+  background-image: url("./assets/background/background.svg");
   background-size: cover;
   background-attachment: fixed;
   background-position: 40% 40%;
