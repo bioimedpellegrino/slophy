@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { Box, Button, Flex } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
 
 
 const Metamask = ({ accounts, setAccounts}) => {
-    const isConnected = Boolean(accounts[0]);
 
     async function connectAccount(){
         if (window.ethereum){
