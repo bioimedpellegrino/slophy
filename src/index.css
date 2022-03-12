@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "MessapiaBold";
+  src: local("MessapiaBold"),
+   url("./assets/fonts/MessapiaBold/Messapia-Bold.otf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Messapia";
+  src: local("Messapia"),
+   url("./assets/fonts/Messapia/Messapia-Regular.otf") format("truetype");
+  font-weight: bold;
+}

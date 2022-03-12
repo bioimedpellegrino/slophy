@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="overlay">
       <div className="App">
-        <NavBar accounts={accounts} setAccounts={setAccounts} />
+        <NavBar/>
         <MainMint accounts={accounts} setAccounts={setAccounts}/>
       </div>
       <div className="background"></div>
