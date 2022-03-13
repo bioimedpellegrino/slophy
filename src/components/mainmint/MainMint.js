@@ -150,7 +150,6 @@ const MainMint = ({ accounts, setAccounts }) => {
                             fontSize="16px"
                             padding="16px 32px 16px 32px"
                             width="auto"
-                            margin="50px 15px"
                             onClick={handleDecrement}><b>-</b></Button>
                         <Input
                             readOnly
@@ -159,8 +158,6 @@ const MainMint = ({ accounts, setAccounts }) => {
                             width="10%"
                             height="40px"
                             textAlign="center"
-                            paddingLeft="19px"
-                            marginTop="10px"
                             variant="unstyled"
                             border="0px"
                             type="number"
@@ -177,7 +174,6 @@ const MainMint = ({ accounts, setAccounts }) => {
                             fontSize="16px"
                             padding="16px 32px 16px 32px"
                             width="auto"
-                            margin="15px 50px"
                             size="lg"
                             onClick={handleIncrement}><b>+</b></Button>
                     </div>
