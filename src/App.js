@@ -8,7 +8,7 @@ function App() {
   const [accounts, setAccounts] = useState([]);
 
   return (
-      <div>
+      <div className="overlay">
         <div className="App">
           <NavBar/>
           <MainMint accounts={accounts} setAccounts={setAccounts}/>
