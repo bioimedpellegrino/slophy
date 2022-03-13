@@ -1,10 +1,12 @@
 import {useState} from 'react';
 import { ethers, BigNumber } from 'ethers';
-import {ReactComponent as SlophyEth} from "../../assets/background/slophyeth.svg";
-import {ReactComponent as D2E} from "../../assets/background/d2e.svg";
-import Metamask from '../metamask/Metamask';
-import { Input, Button, Text, AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay, ChakraProvider} from '@chakra-ui/react';
+import { Image, Input, Box, Stack, Button, Text, AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay, ChakraProvider} from '@chakra-ui/react';
+
+import SlophyEth from "../../assets/background/slophyeth.svg";
+import D2E from "../../assets/background/d2e.svg";
 import slophyNFT from '../../SlophyNFT.json';
+
+import Metamask from '../metamask/Metamask';
 import React from 'react';
 
 const slophyNFTAddress = "0xE7f6703E4feBF792693149e3B9b2eAd2B2160C1F";
@@ -67,7 +69,10 @@ const MainMint = ({ accounts, setAccounts }) => {
                         </AlertDialogBody>
             
                         <AlertDialogFooter>
-                            <Button backgroundColor='#cbfe41' onClick={onClose}>
+                            <Button 
+                                backgroundColor='#cbfe41' 
+                                onClick={onClose}
+                            >
                             Got it!
                             </Button>
                         </AlertDialogFooter>
@@ -83,15 +88,29 @@ const MainMint = ({ accounts, setAccounts }) => {
             {!isConnected ? (
                 <div>
                     <div>
-                        <SlophyEth/>
-                    </div>
-                    <div>
-                        <D2E/>
+                        <Stack direction='column'>
+                            <Box boxSize='sm'>
+                                <Image 
+                                    src={SlophyEth}
+                                    boxSize='90px'
+                                    objectFit='fit'
+                                />
+                            </Box>
+                            <Box boxSize='sm'>
+                                <Image 
+                                    src={D2E}
+                                    width='400px'
+                                    height='150px'
+                                    objectFit='fit'
+                                />
+                            </Box>
+                        </Stack>
                     </div>
                     <Text
+                        marginTop='30px'
                         fontSize="14px"
                         fontFamily="inherit"
-                        color="#28414D"
+                        color="black"
                     >
                         <b>The only NFT that earns you crypto by smartphone’smartphone <br></br>
                         disconnection.</b>
@@ -103,7 +122,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                             marginTop="60px"
                             fontSize="60px"
                             fontFamily="MessapiaBold"
-                            color="#28414D"
+                            color="black"
                         >
                             <b>Mint Time!</b>
                     </Text>
@@ -111,7 +130,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                         marginBottom="60px"
                         fontSize="15px"
                         fontFamily="inherit"
-                        color="#28414D"
+                        color="black"
                     >
                         <b>Select how many Slophy you want to mint.*</b>
                     </Text>
@@ -158,33 +177,38 @@ const MainMint = ({ accounts, setAccounts }) => {
                             fontSize="16px"
                             padding="16px 32px 16px 32px"
                             width="auto"
-                            margin="50px 15px"
+                            margin="15px 50px"
+                            size="lg"
                             onClick={handleIncrement}><b>+</b></Button>
                     </div>
-                    <Text
-                        marginTop="60px"
-                        fontSize="15px"
-                        fontFamily="inherit"
-                        color="#28414D"
-                    >
-                        <b>*NOTE: You can mint maximux 2 Slophy at once.</b>
-                    </Text>
-                    <Button
-                        backgroundColor="#C1F53F"
-                        borderRadius="5px"
-                        boxShadow="0px 30px 70px 12px rgb(203 254 65 / 71%)"
-                        color="#04521F"
-                        fill="#04521F"
-                        cursor="pointer"
-                        fontFamily="inherit"
-                        fontSize="16px"
-                        padding="16px 32px 16px 32px"
-                        width="auto"
-                        margin="50px 15px"
-                        onClick={handleMint}
-                    >
-                    <b>MINT SLOPHYS</b>
-                    </Button>
+                    <div>
+                        <Text
+                            margin="50px 15px"
+                            fontSize="15px"
+                            fontFamily="inherit"
+                            color="black"
+                        >
+                            <b>*NOTE: You can mint maximux 2 Slophy at once.</b>
+                        </Text>
+                    </div>
+                    <div>
+                        <Button
+                            backgroundColor="#C1F53F"
+                            borderRadius="5px"
+                            boxShadow="0px 30px 70px 12px rgb(203 254 65 / 71%)"
+                            color="#04521F"
+                            fill="#04521F"
+                            cursor="pointer"
+                            fontFamily="inherit"
+                            fontSize="16px"
+                            padding="16px 32px 16px 32px"
+                            width="auto"
+                            margin="50px 15px"
+                            onClick={handleMint}
+                        >
+                        <b>MINT SLOPHYS</b>
+                        </Button>
+                    </div>
                 </div>
             ) : (
                 <Metamask accounts={accounts} setAccounts={setAccounts} />

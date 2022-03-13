@@ -25,17 +25,19 @@ body {
   position: fixed;
 }
 
-.background {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("./assets/background/background.png");
-  background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-
+@media (min-width: 601px) {
+  .background {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("./assets/background/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    width: 100%;
+    height: auto;
+  }
 }
