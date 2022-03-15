@@ -28,9 +28,10 @@ const Metamask = ({ accounts, setAccounts}) => {
             padding="16px 32px 16px 32px"
             width="auto"
             margin="50px 15px"
+            border="0px"
             onClick={connectAccount}
         >
-        <b>CONNET TO METAMASK</b>
+        <b>CONNECT TO METAMASK</b>
         </Button>
     );
 };

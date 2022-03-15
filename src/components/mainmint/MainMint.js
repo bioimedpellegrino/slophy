@@ -17,7 +17,15 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const onClose = () => setIsOpen(false)
     
+    window.ethereum.on("accountsChanged", async function(accounts) {
+          
+        if (accounts.length === 0) {
+            window.location.reload();
+        }
+    });
+
     async function handleMint(){
+
         if (window.ethereum){
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const network = await provider.detectNetwork();
@@ -81,7 +89,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                 </AlertDialog>
             </ChakraProvider>
         )
-      }
+    }
 
     return (
         <div>
@@ -112,7 +120,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                         fontFamily="inherit"
                         color="black"
                     >
-                        <b>The only NFT that earns you crypto by smartphone’smartphone <br></br>
+                        <b>The only NFT that earns you crypto by smartphone’s <br></br>
                         disconnection.</b>
                     </Text>
                 </div>
