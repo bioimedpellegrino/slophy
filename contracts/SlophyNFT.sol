@@ -18,8 +18,7 @@ contract SlophyNFT is ERC721Enumerable, Ownable {
     uint256 public maxSupply;
     uint256 public maxPerWallet;
     // Bool
-    bool public isPublicMintEnabled;
-    bool public paused = true;
+    bool public isPublicMintEnabled = false;
     // String
     string internal baseTokenUri;
     // Address
@@ -35,7 +34,7 @@ contract SlophyNFT is ERC721Enumerable, Ownable {
         baseTokenUri = preRevealbaseURI;
     }
 
-    // Only owner: Call this function to enable the sale
+    // Only owner: Call this function to enable the sale or pause
     function setIsPublicMintEnabled(bool isPublicMintEnabled_) external onlyOwner {
         isPublicMintEnabled = isPublicMintEnabled_;
     }
