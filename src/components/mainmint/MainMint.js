@@ -38,7 +38,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                 );
                 try{
                     const response = await contract.mint(BigNumber.from(mintAmount), {
-                        value: ethers.utils.parseEther((0.28 * mintAmount).toString()),
+                        value: ethers.utils.parseEther((0.21 * mintAmount).toString()),
                     });
                     console.log("response", response);
                 } 
