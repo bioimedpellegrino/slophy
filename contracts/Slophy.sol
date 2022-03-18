@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
-contract SlophyNFT is ERC721Enumerable, Ownable {
+contract Slophy is ERC721Enumerable, Ownable {
 
     // Import dependencies
     using SafeMath for uint256;
@@ -27,7 +27,7 @@ contract SlophyNFT is ERC721Enumerable, Ownable {
 
     constructor (
         string memory preRevealbaseURI
-    ) payable ERC721('SlophyNFT', 'Slophy'){
+    ) payable ERC721('Slophy', 'Slophy'){
         mintPrice = 0.19 ether;
         maxSupply = 5000;
         maxPerWallet = 2;
