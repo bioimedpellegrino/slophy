@@ -70,9 +70,8 @@ contract SlophyNFT is ERC721Enumerable, Ownable {
         require(walletMints[msg.sender] + quantity_ <= maxPerWallet, 'Exceed max wallet');
 
         for (uint256 i = 0; i < quantity_; i++){
-            uint newTokenId = _tokenIds.current() + 1;
             _tokenIds.increment();
-            _safeMint(msg.sender, newTokenId);
+            _safeMint(msg.sender, _tokenIds.current());
         }
     }
     // Withdraw all
