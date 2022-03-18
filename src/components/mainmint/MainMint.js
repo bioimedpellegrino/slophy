@@ -29,7 +29,7 @@ const MainMint = ({ accounts, setAccounts }) => {
         if (window.ethereum){
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const network = await provider.detectNetwork();
-                if (network['chainId'] === 1){
+                if (network['chainId'] === 4){
                 const signer = provider.getSigner();
                 const contract = new ethers.Contract(
                     slophyNFTAddress,
@@ -38,7 +38,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                 );
                 try{
                     const response = await contract.mint(BigNumber.from(mintAmount), {
-                        value: ethers.utils.parseEther((0.21 * mintAmount).toString()),
+                        value: ethers.utils.parseEther((0.19 * mintAmount).toString()),
                     });
                     console.log("response", response);
                 } 
@@ -193,6 +193,16 @@ const MainMint = ({ accounts, setAccounts }) => {
                             color="black"
                         >
                             <b>*NOTE: You can mint maximux 2 Slophy at once.</b>
+                        </Text>
+                    </div>
+                    <div>
+                        <Text
+                            margin="50px 15px"
+                            fontSize="35px"
+                            fontFamily="inherit"
+                            color="#C1F53F"
+                        >
+                            <b>Total price: {0.19* mintAmount} ETH</b>
                         </Text>
                     </div>
                     <div>

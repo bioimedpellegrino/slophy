@@ -28,7 +28,7 @@ contract SlophyNFT is ERC721Enumerable, Ownable {
     constructor (
         string memory preRevealbaseURI
     ) payable ERC721('SlophyNFT', 'Slophy'){
-        mintPrice = 0.21 ether;
+        mintPrice = 0.19 ether;
         maxSupply = 5000;
         maxPerWallet = 2;
         baseTokenUri = preRevealbaseURI;
