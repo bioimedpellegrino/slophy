@@ -29,7 +29,7 @@ contract Slophy is ERC721Enumerable, Ownable {
         string memory preRevealbaseURI
     ) payable ERC721('Slophy', 'Slophy'){
         mintPrice = 0.19 ether;
-        maxSupply = 5000;
+        maxSupply = 5007; // index start from 0
         maxPerWallet = 2;
         baseTokenUri = preRevealbaseURI;
     }
@@ -48,9 +48,9 @@ contract Slophy is ERC721Enumerable, Ownable {
         uint totalMinted = _tokenIds.current();
         require(totalMinted.add(quantity_) < maxSupply, "Not enough NFTs left to reserve");
         for (uint i = 0; i < quantity_; i++) {
-            totalMinted = totalMinted + 1;
             _tokenIds.increment();
-             _safeMint(msg.sender, totalMinted);
+            _safeMint(msg.sender, totalMinted);
+            totalMinted = totalMinted + 1;
         }
     }
     // Get the mint price
@@ -70,8 +70,8 @@ contract Slophy is ERC721Enumerable, Ownable {
         require(walletMints[msg.sender] + quantity_ <= maxPerWallet, 'Exceed max wallet');
 
         for (uint256 i = 0; i < quantity_; i++){
-            _tokenIds.increment();
             _safeMint(msg.sender, _tokenIds.current());
+            _tokenIds.increment();
         }
     }
     // Withdraw all
