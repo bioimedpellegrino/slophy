@@ -6,7 +6,7 @@
 const hre = require("hardhat");
 
 async function main() {
-  const baseTokenURI = "ipfs://QmcCbXu4NFEJrnC7GoSVF3Ng6ZS2Dd1nFaeRveSWY6VTVx/";
+  const baseTokenURI = "ipfs://QmNgjZo6dVr19yLeZXiWFRkBudpA2GbYf7eWR7ViTvYjSe/";
 
   const SlophyNFT = await hre.ethers.getContractFactory("Slophy");
   const slophyNFT = await SlophyNFT.deploy(baseTokenURI);

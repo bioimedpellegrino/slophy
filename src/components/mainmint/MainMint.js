@@ -29,7 +29,7 @@ const MainMint = ({ accounts, setAccounts }) => {
         if (window.ethereum){
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const network = await provider.detectNetwork();
-                if (network['chainId'] === 4){
+                if (network['chainId'] === 1){
                 const signer = provider.getSigner();
                 const contract = new ethers.Contract(
                     slophyNFTAddress,
