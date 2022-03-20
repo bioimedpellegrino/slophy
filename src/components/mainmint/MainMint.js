@@ -14,9 +14,11 @@ const slophyNFTAddress = "0xcF22c319EB98e52a1Ba295E34eA97a10EA077D04";
 const MainMint = ({ accounts, setAccounts }) => {
     const [mintAmount, setMinAmount] = useState(2);
     const isConnected = Boolean(accounts[0]);
-    const [isOpen, setIsOpen] = React.useState(false)
-    const onClose = () => setIsOpen(false)
-    
+    const [isOpen, setIsOpen] = React.useState(false);
+    const onClose = () => setIsOpen(false);
+    const [modalHeader, setModalHeader] = useState("");
+    const [modalBody, setModalBody] = useState("");
+
     window.ethereum.on("accountsChanged", async function(accounts) {
           
         if (accounts.length === 0) {
@@ -44,10 +46,15 @@ const MainMint = ({ accounts, setAccounts }) => {
                 } 
                 catch(err){
                     console.log("error", err);
+                    setIsOpen(true);
+                    setModalHeader(modalHeader => "Sorry!");
+                    setModalBody(modalBody => "Seems like you don't have enough funds to mint :(");
                 }
             }
             else {
                 setIsOpen(true);
+                setModalHeader(modalHeader => "You are using the wrong network!");
+                setModalBody(modalBody => "You must replace the network you are connected to with the Ethereum Mainnet network");
             }
         }
     }
@@ -69,11 +76,11 @@ const MainMint = ({ accounts, setAccounts }) => {
                 <AlertDialogOverlay>
                     <AlertDialogContent>
                         <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-                            You are using the wrong network!
+                            {modalHeader}
                         </AlertDialogHeader>
             
                         <AlertDialogBody>
-                            You must replace the network you are connected to with the Ethereum Mainnet network
+                            {modalBody}
                         </AlertDialogBody>
             
                         <AlertDialogFooter>
