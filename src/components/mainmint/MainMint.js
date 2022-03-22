@@ -9,7 +9,7 @@ import slophyNFT from '../../SlophyNFT.json';
 import Metamask from '../metamask/Metamask';
 import React from 'react';
 
-const slophyNFTAddress = "0xcF22c319EB98e52a1Ba295E34eA97a10EA077D04";
+const slophyNFTAddress = "0x16D45ca69D10044EDFfec4f871A1D0FBf549b4F3";
 
 const MainMint = ({ accounts, setAccounts }) => {
     const [mintAmount, setMinAmount] = useState(2);
