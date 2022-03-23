@@ -19,13 +19,6 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [modalHeader, setModalHeader] = useState("");
     const [modalBody, setModalBody] = useState("");
 
-    window.ethereum.on("accountsChanged", async function(accounts) {
-          
-        if (accounts.length === 0) {
-            window.location.reload();
-        }
-    });
-
     async function handleMint(){
 
         if (window.ethereum){
