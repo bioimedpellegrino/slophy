@@ -16,6 +16,14 @@ npx hardhat help
 npx hardhat verify --network rinkeby DEPLOYED_CONTRACT_ADDRESS "BASE_TOKEN_URI"
 
 ```
+## Contract link and address:
+
+https://etherscan.io/address/0x16d45ca69d10044edffec4f871a1d0fbf549b4f3
+
+## Opensea
+
+https://opensea.io/Slophy
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
